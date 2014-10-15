@@ -7,42 +7,42 @@
 function swap($inp, $outp, $text)
 {
 
-foreach ($inp as $nm) {
-	foreach ($outp as $vs) {
-		$text = str_replace($nm.$vs,$vs.$nm, $text);
-	}
-  }
+    foreach ($inp as $nm) {
+        foreach ($outp as $vs) {
+            $text = str_replace($nm.$vs,$vs.$nm, $text);
+        }
+    }
 
-  return $text;
+    return $text;
 
 }
 
 function swap_ex($inp, $outp, $text)
 {
 
-foreach ($inp as $nm) {
-	foreach ($outp as $vs) {
-		$text = str_replace($nm.$vs,$vs.$nm."$", $text);
-	}
-  }
+    foreach ($inp as $nm) {
+        foreach ($outp as $vs) {
+            $text = str_replace($nm.$vs,$vs.$nm."$", $text);
+        }
+    }
 
-$text=str_replace("$","",$text);
+    $text=str_replace("$","",$text);
 
-  return $text;
+    return $text;
 
 }
 
 function swap_ey($inp, $outp, $text)
 {
 
-foreach ($inp as $nm) {
-	foreach ($outp as $vs) {
-		$text = str_replace($nm.$vs,"$".$vs.$nm, $text);
-	}
-  }
+    foreach ($inp as $nm) {
+        foreach ($outp as $vs) {
+            $text = str_replace($nm.$vs,"$".$vs.$nm, $text);
+        }
+    }
 
-$text=str_replace("$","",$text);
+    $text=str_replace("$","",$text);
 
-  return $text;
+    return $text;
 
 }

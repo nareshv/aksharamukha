@@ -20,20 +20,20 @@ CWS;
 /* A list of available conversion options */
 
 $convs = array (
-	"dtamil" => "தமிழ்",
-            "telugu" => "தெலுங்கு",
-	"malayalam" => "மலையாளம்",
-	"kannada" => "கன்னடம்",
-	"devanagari" => "தேவநாகரி",
-	"sinhala" => "சிங்களம்",
-	"tibetan" => "திபெத்தியம்",
-	"hk" => "Harward-Kyoto",
-	"itrans" => "ITRANS",
-	"unicode" => "IAST",
-	"unicode2" => "ISO",
-	"velthuis" => "Velthuis",
-	"cologne" => "Cologne(Tamil)",
-	"egrantha"=>"கிரந்தம் (இந்தோலிபி)"
+    "dtamil"     => "தமிழ்",
+    "telugu"     => "தெலுங்கு",
+    "malayalam"  => "மலையாளம்",
+    "kannada"    => "கன்னடம்",
+    "devanagari" => "தேவநாகரி",
+    "sinhala"    => "சிங்களம்",
+    "tibetan"    => "திபெத்தியம்",
+    "hk"         => "Harward-Kyoto",
+    "itrans"     => "ITRANS",
+    "unicode"    => "IAST",
+    "unicode2"   => "ISO",
+    "velthuis"   => "Velthuis",
+    "cologne"    => "Cologne(Tamil)",
+    "egrantha"   => "கிரந்தம் (இந்தோலிபி)"
 );
 
 /* And which ones among them are script? */

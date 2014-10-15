@@ -1,6 +1,6 @@
 <?PHP
 
-	/* If an Indic script is the target */
+/* If an Indic script is the target */
 
 /* Replace oM with oM glyph */
 
@@ -12,56 +12,56 @@ $text = preg_replace("/\bo~(?<!\b)/",$vow['scr'][267], $text); // o with anusvar
 
 $text = preg_replace("/(\|?)(\|)/","$1$2 ","$text");
 
-	$yukta['scr'][301] = "";
+$yukta['scr'][301] = "";
 
-	$text = " " . $text;
-	$text = str_replace("-", "- ", $text); // Ensure full vowel is given after dash
-    $text = str_replace("^", "", $text); // Remove external sandhi break
-    $text = str_replace("%", "", $text); // Remove XHK capital letter sign
+$text = " " . $text;
+$text = str_replace("-", "- ", $text); // Ensure full vowel is given after dash
+$text = str_replace("^", "", $text); // Remove external sandhi break
+$text = str_replace("%", "", $text); // Remove XHK capital letter sign
 
-	/* Create half-consonants */
+/* Create half-consonants */
 
-	$half['tra'] = array();
-	$half['scr'] = array();
+$half['tra'] = array();
+$half['scr'] = array();
 
-	foreach ($main['tra'] as $key => $val) {
-		$half['tra'][$key] = str_replace("a", "", $val);
-	}
-	foreach ($main['scr'] as $key => $val) {
-		$half['scr'][$key] = $val . $v;
-	}
+foreach ($main['tra'] as $key => $val) {
+    $half['tra'][$key] = str_replace("a", "", $val);
+}
+foreach ($main['scr'] as $key => $val) {
+    $half['scr'][$key] = $val . $v;
+}
 
-	/* Crunch joint vowels */
+/* Crunch joint vowels */
 
-	foreach ($yukta['tra'] as $key => $val) {
-		foreach ($half['tra'] as $hkey => $hval) {
-			$obj = str_replace("{$v}", "", $half['scr'][$hkey]);
-			$text = str_replace(($hval . $val),  ($obj . $yukta['scr'][$key]), $text);
-		}
-	}
+foreach ($yukta['tra'] as $key => $val) {
+    foreach ($half['tra'] as $hkey => $hval) {
+        $obj = str_replace("{$v}", "", $half['scr'][$hkey]);
+        $text = str_replace(($hval . $val),  ($obj . $yukta['scr'][$key]), $text);
+    }
+}
 
-	$text = str_replace("_", "_ ", $text); // For ha_uk etc.
+$text = str_replace("_", "_ ", $text); // For ha_uk etc.
 
 
-	$text = str_replace ($main['tra'], $main['scr'], $text);
-	$text = str_replace ($vow['tra'], $vow['scr'], $text);
-	$text = str_replace ($half['tra'], $half['scr'], $text);
-	$text = str_replace ($num['tra'], $num['scr'], " " . $text . " ");
+$text = str_replace ($main['tra'], $main['scr'], $text);
+$text = str_replace ($vow['tra'], $vow['scr'], $text);
+$text = str_replace ($half['tra'], $half['scr'], $text);
+$text = str_replace ($num['tra'], $num['scr'], " " . $text . " ");
 
-	$text = str_replace($v.$main['scr'][154],$main['scr'][154], $text); // Fix nuktas
+$text = str_replace($v.$main['scr'][154],$main['scr'][154], $text); // Fix nuktas
 
-	/* Crunch remaining full vowels, e.g. ha_uk  and sei */
+/* Crunch remaining full vowels, e.g. ha_uk  and sei */
 
-	foreach ($vow['tra'] as $key => $val) {
-		$objscr = str_replace(" ", "", $val);
-		$objtra = str_replace(" ", "", $vow['scr'][$key]);
-		$text = str_replace("{$objscr}", "{$objtra}",  $text);
-	}
+foreach ($vow['tra'] as $key => $val) {
+    $objscr = str_replace(" ", "", $val);
+    $objtra = str_replace(" ", "", $vow['scr'][$key]);
+    $text = str_replace("{$objscr}", "{$objtra}",  $text);
+}
 
-	$tidys = array("_ ", "- ", "\n ");
-	$tidyr = array("", "-", "\n");
+$tidys = array("_ ", "- ", "\n ");
+$tidyr = array("", "-", "\n");
 
-	$text = trim(str_replace($tidys, $tidyr, $text));
+$text = trim(str_replace($tidys, $tidyr, $text));
 
 /* Add an Extra New line at the End */
 
@@ -71,7 +71,7 @@ $text=$text."\n";
 
 $text = str_replace("'".$v,"'",$text);
 
- /* Swap diacritic numerals & the vowel sign pairs */
+/* Swap diacritic numerals & the vowel sign pairs */
 
 /* e.g கீ² <-- க²ீ */
 
@@ -85,11 +85,11 @@ $text = swap($SuperNumeralNM,array($main['scr']['149'],$main['scr']['151']),$tex
 
 if($_SESSION['tgt'] == "dtamil")
 
-$text = swap(array($main['scr']['149'],$main['scr']['151']),$SuperNumeral,$text);
+    $text = swap(array($main['scr']['149'],$main['scr']['151']),$SuperNumeral,$text);
 
 /* Swap Vowel Signs in Thai for E, ai, o eY to ye ยเ -> เย */
 
 if ($_SESSION['tgt'] == "thai") {
-$text = swap_ey($main['scr'],array($yukta['scr']['311'],$yukta['scr']['312'],$yukta['scr']['313']),$text);
+    $text = swap_ey($main['scr'],array($yukta['scr']['311'],$yukta['scr']['312'],$yukta['scr']['313']),$text);
 
 }

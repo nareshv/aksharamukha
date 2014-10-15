@@ -12,13 +12,13 @@ $nukt_precom = array("क़","ख़","ग़","ज़","ड़","ढ़","फ़","य़","ਲ਼","ਸ਼"
 
 {
 
-if($_SESSION['src'] != 'egrantha' && $_SESSION['src'] != 'tamil-grantha' )
+    if($_SESSION['src'] != 'egrantha' && $_SESSION['src'] != 'tamil-grantha' )
 
-{
+    {
 
-$text = str_replace($nukt_decom,$nukt_precom,$text);
+        $text = str_replace($nukt_decom,$nukt_precom,$text);
 
-}
+    }
 
 }
 
