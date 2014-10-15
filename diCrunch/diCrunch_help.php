@@ -1,4 +1,4 @@
-﻿<?PHP
+<?PHP
 
 
 $op .= <<<CWS
@@ -7,7 +7,7 @@ $op .= <<<CWS
 <h2>உதவி &nbsp; &middot; &nbsp; <a href="{$_SERVER['PHP_SELF']}">முகப்பு</a> &raquo;</h2>
 
 <div class="preferenceheading">
-<b>குறியீட்டு முறை விளக்கங்கள்</b> 
+<b>குறியீட்டு முறை விளக்கங்கள்</b>
 </div>
 <div class="preferencefield">
 
@@ -38,7 +38,7 @@ $op .= <<<CWS
 </div> -->
 
 <div class="preferenceheading">
-<b>பரிந்துரைக்கப்படும் ஃபான்ட்கள்</b> 
+<b>பரிந்துரைக்கப்படும் ஃபான்ட்கள்</b>
 </div>
 <div class="preferencefield">
 இக்கருவியின் இயல்பாக  <b><a href="http://www.code2000.net/" target="_blank">CODE2000</a></b>, என்ற Pan-Unicode ஃபான்ட்டை பயன்படுத்துகிறது. <!-- விருப்பத்தேர்வுகள் மூலம் தங்களுக்கு தேவையான ஃபான்ட்டை மாற்றிக்கொள்ள இயலும். -->
@@ -55,8 +55,7 @@ $op .= <<<CWS
 <b>உரிம விபரங்கள்</b>
 </div>
 <div class="preferencefield">
-<b>இக்கருவி</b> GNU General Public Licenseஇன் கீழ் விநியோக்கிக்கப்படுகிறது. முழு உரிமத்தையும் <a href="{$_SERVER['PHP_SELF']}?act=license">இங்கே</a> படிக்கலாம். 
+<b>இக்கருவி</b> GNU General Public Licenseஇன் கீழ் விநியோக்கிக்கப்படுகிறது. முழு உரிமத்தையும் <a href="{$_SERVER['PHP_SELF']}?act=license">இங்கே</a> படிக்கலாம்.
 </div>
 
 CWS;
-?>

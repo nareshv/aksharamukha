@@ -1,10 +1,10 @@
-﻿<?php
+<?php
 
 /* Replace Decomposed Nukta Characters by pre-composed Nukta consonants */
 
 /* Add Oriya Nukta Characters & Tibetan Vowels.. */
 
-$nukt_decom = array("क़","ख़","ग़","ज़","ड़","ढ़","फ़","य़","ਲ਼","ਸ਼","ਖ਼","ਗ਼","ਜ਼","ਫ਼","ড়","ঢ়","য়","ଡ଼","ଢ଼"); // Decomposed Nukta Consonants 
+$nukt_decom = array("क़","ख़","ग़","ज़","ड़","ढ़","फ़","य़","ਲ਼","ਸ਼","ਖ਼","ਗ਼","ਜ਼","ਫ਼","ড়","ঢ়","য়","ଡ଼","ଢ଼"); // Decomposed Nukta Consonants
 
 $nukt_precom = array("क़","ख़","ग़","ज़","ड़","ढ़","फ़","य़","ਲ਼","ਸ਼","ਖ਼","ਗ਼","ਜ਼","ਫ਼","ড়","ঢ়","য়","ଡ଼","ଢ଼"); // Precomposed Nukta Consonants
 
@@ -45,5 +45,3 @@ $latindec = array("ā","ī","ū","ē","ō","ṃ","ṁ","ḥ","ś","ṣ","n
 $latinpre = array("ā","ī","ū","ē","ō","ṃ","ṁ","ḥ","ś","ṣ","ṇ","ṛ","ṝ","ḷ","ḹ","ḻ","ṉ","ṟ");
 
 $text = str_replace($latindec,$latinpre,$text);
-
-?>

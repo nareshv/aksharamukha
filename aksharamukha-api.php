@@ -45,5 +45,3 @@ if($fetch)
 } else
 
     echo "Incorrect Request. Please pass the paremeters correctly";
-
-?>

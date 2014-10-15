@@ -110,7 +110,6 @@ function web_transliterater($url)
     $data=preg_replace("@(http://www\.virtualvinodh\.com/aksharamkh/aksharamukha-web\.php\?.*)(?=http://www\.virtualvinodh\.com/aksharamkh/aksharamukha-web\.php\?website\=)@","",$data);
 
     //$data=preg_replace("@href=(?<!\")@","href=\"",$data);
-
     return $data;
 
 }

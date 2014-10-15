@@ -1,9 +1,9 @@
-﻿<?PHP
+<?PHP
 
 $larray=array("a","b","c","d","e","f","g","h","i","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","j");
 $carray=array("а","б","в","г","д","я","е","ж","з","и","й","к","ё","л","м","н","о","п","с","т","у","ф","ц","ч","ш","щ");
 $larray2=array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
-$carray2=array("А","Б","В","Г","Д","Е","Ж","З","И","Й","К","Л","М","Н","О","П","Р","С","Т","У","Ф","Х","Ц","Ч","Ш","Щ","Ъ");   
+$carray2=array("А","Б","В","Г","Д","Е","Ж","З","И","Й","К","Л","М","Н","О","П","Р","С","Т","У","Ф","Х","Ц","Ч","Ш","Щ","Ъ");
 
 $Chillu_atom=array("ൺ","ൻ","ർ","ൽ","ൾ","ൿ");
 $Chillu_zwj=array("ണ്‍","ന്‍","ര്‍","ല്‍","ള്‍","ക്‍");
@@ -15,7 +15,6 @@ $vir_norm=array("្");
 
 $text=str_replace($vir_vis,$vir_norm,$text);
 
-
 /* Sinhala prenasalized consonants in Tamil */
 
 $text = str_replace("்ˆ","ஂˆ",$text);
@@ -26,7 +25,7 @@ $text = str_replace($Chillu_atom,$Chillu_zwj,$text); //Replace Atomic Chillus wi
 
  $subform=array("ྐ","ྑ","ྒ","ྒྷ","ྔ","ྕ","ྖ","ྗ","ྙ","ྚ","ྛ","ྜ","ྜྷ","ྞ","ྟ","ྠ","ྡ","ྡྷ","ྣ","ྤ","ྥ","ྦ","ྦྷ","ྨ","ྩ","ྪ","ྫ","ྫྷ","ྭ","ྮ","ྯ","ྰ","ྱ","ྲ","ླ","ྴ","ྵ","ྶ","ྷ");
 
- $oldvow=array("ྲྀ","ཷ","ླྀ","ཹ");  
+ $oldvow=array("ྲྀ","ཷ","ླྀ","ཹ");
  $newvow=array("ྲྀ","ྲཱྀ","ླྀ","ླཱྀ");
 
 /* correct slashes & quote */
@@ -57,7 +56,7 @@ if ($_SESSION['src']=='unicode' || $_SESSION['src']=='unicode2' )
 
 {
 
-$text = str_replace("q", "ｑ", $text); // Conversion of Internal Processing 
+$text = str_replace("q", "ｑ", $text); // Conversion of Internal Processing
 $text = str_replace("z", "ż", $text);
 }
 
@@ -85,14 +84,13 @@ if ($_SESSION['src']=='burmese')
 {
 
 	$my_old=array("္ယ","္ရ","္ဟ","္ဝ","င္","သ္သ","ဉ္ဉ","ာ"); // Old Unicode Conventions
-	$my_new=array("ျ","ြ","ှ","ွ","င်္","ဿ","ည","ါ");  // New Unicode Conventions
+    $my_new=array("ျ","ြ","ှ","ွ","င်္","ဿ","ည","ါ");  // New Unicode Conventions
 
 	$text = str_replace($my_new,$my_old, $text);
 
 	$text = str_replace("်","္",$text); // Replace Old Generic Virama with Subjoining Virama
-	
+
 	$text = str_replace("ာ္","ာ်",$text);
-	
 
 }
 
@@ -112,46 +110,41 @@ $text=str_replace($upper_alph,$lower_alph,$text);
 
 }
 
-	
 	/* ITRANS alternative normalizing */
-	
+
 	if ($_SESSION['src'] == "itrans") {
-	
+
 		$se = array("OM","AUM", "aa", "ii", "uu", "RRi", "RRI","LLi", "LLI", "N^", "ssh", "GY", "dny", "JN", "x", ".m", ".n","{}","ch","Ch","C","shh","R","^Ｒ^","a.c",".c","z");
-		
+
 		$re = array("oM","oM", "A", "I", "U", "R^i", "R^I", "L^i", "L^I", "~N", "Sh", "j~n", "j~n", "~n","kS", "M", "M", "_","c","ch","ch","Sh","^Ｒ","R^","a^e","a^e","J");
-		
-		$nukcor=array("K","q","G","J",".Dh",".D");				
+
+		$nukcor=array("K","q","G","J",".Dh",".D");
 		$nukcus=array("khh","ｑh","ghh","^x","rhh","Dhh");
-		
+
 		$text = str_replace($se, $re, $text);
-		
+
 		$text = str_replace($nukcor, $nukcus, $text);
-		
+
 		$text=str_replace("a.h","",$text);
 		$text=str_replace(".h","",$text);
 		$text=str_replace("^khh","K",$text);
-		
-		
+
 	}
 
-/* R RR lR lRR for vocalic HK encoding */	
+/* R RR lR lRR for vocalic HK encoding */
 
 	if ($_SESSION['src'] == "hk") {
 
 		$voco=array("lRR","lR","RR");
 		$vocn=array("W","w","q");
-		
-		$text = str_replace($voco,$vocn,$text);
-		
-		}
 
+		$text = str_replace($voco,$vocn,$text);
+
+		}
 
 /* Replacment for Cologne Tamil  */
 
-	
-	if ($_SESSION['src'] == "cologne") 
-	{
+	if ($_SESSION['src'] == "cologne") {
 		$text = str_replace("e", "W", $text);
 		$text = str_replace("E", "x", $text);
 
@@ -172,46 +165,40 @@ $text=str_replace($upper_alph,$lower_alph,$text);
 		$text = str_replace("R", "r2", $text);
 
 		$text = str_replace("z", "Z", $text);
-	
-				
-	}   
 
-	if ($_SESSION['src'] == "malayalam") 
-	{
+	}
+
+	if ($_SESSION['src'] == "malayalam") {
 
 		$text = str_replace("ൌ","ൗ",$text); // Arachaic Virama -> Modern Virama (Vowel Marker )
-	}  
+    }
 
-if ($_SESSION['src'] == "dtamil")  // Replace srI with shrI & remove ZWNJ
-{
+if ($_SESSION['src'] == "dtamil") {  // Replace srI with shrI & remove ZWNJ
 
  $tam_old=array("ஸ்ரீ","க்‌ஷ்","ர‌ி","ர‌ீ","ௐ");
  $tam_new=array("ஶ்ரீ","க்ஷ்","ரி","ரீ","ஓம்ʼ");
 
  $text = str_replace($tam_old,$tam_new,$text);
- 
+
  $text=str_replace("ம் ̐","ம‌‌‌‌‌‌் ̐",$text);
- 
- 
+
 	$subnum = array("¹","₁","₂","₃","₄","ஃக‌");
 	$supnum = array("","","²","³","⁴","ஃக‌¹");
 
 	$text = str_replace($subnum,$supnum,$text);
 
-
-
 }
 
 //Miscelleanious alternate form replacements for Roman Transcription
 
- { 
+ {
 	$text = str_replace("ṃ","ṁ",$text);
 	$text = str_replace("ḿ","ṁ",$text);
 	$text = str_replace("||", "॥", $text);
 	$text = str_replace("|", "।", $text);
 }
 
-// Strip Bengali Khanda ta 
+// Strip Bengali Khanda ta
 
 $text=str_replace("ত্‍","ত্",$text);
 
@@ -219,7 +206,7 @@ $text=str_replace("ৎ","ত্",$text);
 
 // Replace Composite Thai Vowels with sepearate vowel signs )
 
-if ($_SESSION['src'] == "thai") 
+if ($_SESSION['src'] == "thai")
 
 {
 
@@ -230,10 +217,7 @@ $text=str_replace($thai_old,$thai_new,$text);
 
 }
 
-
-
-
-if ($_SESSION['src'] == "tibetan") 
+if ($_SESSION['src'] == "tibetan")
 
 {
 
@@ -242,8 +226,8 @@ if ($_SESSION['src'] == "tibetan")
 $vow_IU_new = array("ཱི","ཱུ");
 $vow_IU_old = array("ཱི","ཱུ");
 
-$text = str_replace($newvow,$oldvow, $text); 
-$text = str_replace($vow_IU_old,$vow_IU_new, $text); 
+$text = str_replace($newvow,$oldvow, $text);
+$text = str_replace($vow_IU_old,$vow_IU_new, $text);
 
 $text = str_replace($subform,$fulform, $text);
 
@@ -263,22 +247,19 @@ $text=str_replace($ksha_full,$ksha_decom,$text);
 
 /* Replace Stylized Chandrabindu with ordinary Chandrabindu */
 
- $text = str_replace("ྂ","ྃ", $text); 
+ $text = str_replace("ྂ","ྃ", $text);
 
 }
 
 /* Retain Latin text when converting Indic Scripts */
 
-$latinarr=array("hk","unicode","unicode2","itrans","velthuis","cologne"); 
+$latinarr=array("hk","unicode","unicode2","itrans","velthuis","cologne");
 
-if (!in_array($_SESSION['src'],$latinarr))
-{
+if (!in_array($_SESSION['src'],$latinarr)) {
 
 $text = dtext($text);
 
-} 
-
-else
+} else
 
 {
 
@@ -298,13 +279,8 @@ $text = preg_replace("/(##)(.*)(##)/","$2",$text);
 
 }
 
-
 $text=$text." ";
 
-//$text=$text." ☸"; // Appending Unicode Sign DharmaChakra - Just for Auspiciousness :) 
-		
+//$text=$text." ☸"; // Appending Unicode Sign DharmaChakra - Just for Auspiciousness :)
+
 }
-
-
-
-?>

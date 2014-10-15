@@ -1,4 +1,4 @@
-﻿<?PHP
+<?PHP
 
 
 $text = str_replace("ජ්ඤ","ඥ",$text); // Replace jJa with the Atomic Unicode Characters
@@ -25,7 +25,6 @@ if ($_SESSION['tgt'] == "malayalam")  /* Chillu Replacement */
 
 }
 
-
 // Urdu remove Tashdid and Sukun
 
 if ($_SESSION['tgt'] == "urdu" || $_SESSION['tgt'] == "arabic" )
@@ -39,8 +38,6 @@ if ($_SESSION['tgt'] == "urdu" || $_SESSION['tgt'] == "arabic" )
 
 }
 
-
-
 if ($_SESSION['haaru'] == 1 )
 
 {
@@ -50,7 +47,6 @@ if ($_SESSION['haaru'] == 1 )
     $text = str_replace($withouthaaru,$withhaaru,$text);
 
 }
-
 
 if ($_SESSION['tgt'] == "urdu" && !empty($_SESSION['remshrturd']))
 
@@ -65,7 +61,6 @@ if ($_SESSION['tgt'] == "urdu" || $_SESSION['tgt'] == "arabic")
     $text = str_replace(array("رْ۲","نْ۲"),array("رْ","نْ"),$text);
 
 }
-
 
 // Telugu dot-Anusvara Combinations
 
@@ -83,8 +78,6 @@ if ($_SESSION['removedot'] == 1)
     $text = str_replace("·","",$text);
 
 }
-
-
 
 if($_SESSION['tgt']!='devanagari')
 
@@ -117,12 +110,9 @@ if (!empty($_SESSION['replacesha']) && !in_array($_SESSION['tgt'],$latinarr)) /*
 
 }
 
-
 // Removing Extraneious Diacritics from the Text
 
-if (!empty($_SESSION['removedia']))
-{
-
+if (!empty($_SESSION['removedia'])) {
 
     $diacritic=array("²","³","⁴","·","¬","•","«","¦","°","¿","¨","ʼ","ˇ"," ̐","˘","ˆ");
 
@@ -139,22 +129,19 @@ if (!empty($_SESSION['avagra']))
 
 {
 
-    if($_SESSION['tgt'] == "telugu")
-    {
+    if ($_SESSION['tgt'] == "telugu") {
 
         $text = str_replace("'", "ఽ", $text);
 
     }
 
-    if($_SESSION['tgt'] == "kannada")
-    {
+    if ($_SESSION['tgt'] == "kannada") {
 
         $text = str_replace("'", "ಽ", $text);
 
     }
 
-    if($_SESSION['tgt'] == "malayalam")
-    {
+    if ($_SESSION['tgt'] == "malayalam") {
 
         $text = str_replace("'", "ഽ", $text);
 
@@ -211,7 +198,6 @@ if (empty($_SESSION['oldbur']) && $_SESSION['tgt']=='burmese') /* Burmese Rearra
 
     $text = str_replace($my_old,$my_new, $text);
 
-
 }
 
 if (!empty($_SESSION['oldbur']) && $_SESSION['tgt']=='burmese') //Old Burmese Virama
@@ -221,7 +207,6 @@ if (!empty($_SESSION['oldbur']) && $_SESSION['tgt']=='burmese') //Old Burmese Vi
     //echo "insideloop";
 
     $text=str_replace("်","္",$text);
-
 
 }
 
@@ -236,9 +221,6 @@ if ($_SESSION['tgt'] == "khmer")
 
 }
 
-
-
-
 if (!empty($_SESSION['ri'])) /* Unligated Ri/rii in Tamil */
 
 {
@@ -246,7 +228,6 @@ if (!empty($_SESSION['ri'])) /* Unligated Ri/rii in Tamil */
     $text = str_replace("ரி","ர‌ி", $text);
     $text = str_replace("ரீ","ர‌ீ", $text);
     $text = str_replace("ர்","ர‌்", $text);
-
 
 }
 
@@ -258,7 +239,6 @@ if (!empty($_SESSION['mau'])) /* Traditional Form of au */
 
 }
 
-
 //if (!empty($_SESSION['pchillu']) && $_SESSION['pchillu']==2 )  /* Replace ZWJ based Chillus to Atomic Chillus */
 
 {
@@ -268,8 +248,6 @@ if (!empty($_SESSION['mau'])) /* Traditional Form of au */
     $text = str_replace($Chillu_zwj,$Chillu_atom,$text); // See above for Chillu_zwj
 
 }
-
-
 
 if (!empty($_SESSION['ksha'])) /* Virama based Ksha to Conjunct Form */
 
@@ -306,9 +284,7 @@ if (!empty($_SESSION['level2'])) /*Level 2 to Conjuncts in Sinhala */
 
 }
 
-
-if ($_SESSION['tgt'] == "cologne")
-{
+if ($_SESSION['tgt'] == "cologne") {
     $text = str_replace("e", "W", $text);
     $text = str_replace("E", "x", $text);
 
@@ -329,9 +305,7 @@ if ($_SESSION['tgt'] == "cologne")
 
     $text = str_replace("Z", "z", $text);
 
-
 }
-
 
 if ($_SESSION['tgt'] == "tibetan") /* Replace Virma forms of the Consonants with Subjoined Forms */
 
@@ -380,7 +354,6 @@ if (!empty($_SESSION['wava']) && $_SESSION['wava'] == 2) /* Oriya Wa to Va */
 
     $text = str_replace("ୱ","ଵ",$text);
 
-
 }
 
 if (empty($_SESSION['spac'])) /* Tibetan Tshag to Spce */
@@ -399,7 +372,6 @@ if (!empty($_SESSION['virem'])) /* Remove Tibetan Virama */
 
 }
 
-
 if (!empty($_SESSION['stanu']))  /* Tibetan Chandrabindu with Nada */
 
 {
@@ -407,7 +379,6 @@ if (!empty($_SESSION['stanu']))  /* Tibetan Chandrabindu with Nada */
     $text = str_replace("ྃ","ྂ",$text);
 
 }
-
 
 if (empty($_SESSION['yaphala']))  /* YYA phala instead of Ya for Oriya */
 
@@ -462,7 +433,6 @@ if ($_SESSION['tgt'] == "punjabi" && !empty($_SESSION['guruvisarg'])) // Gurmukh
 
 }
 
-
 if ($_SESSION['tgt'] == "tamil-grantha")  /* Use Tamil Vowel Markers for Tamil Letters, and Vice Versa for Grantha */
 
 {
@@ -472,23 +442,19 @@ if ($_SESSION['tgt'] == "tamil-grantha")  /* Use Tamil Vowel Markers for Tamil L
 
     $tamiloldlet2=array("ண","ன","ல","ள");
 
-    foreach($tamiloldlet1 as $tol)
-    {
+    foreach ($tamiloldlet1 as $tol) {
         $text=str_replace($tol."ா",$tol."‍ா",$text);
         $text=str_replace($tol."ொ","‌‍‌ெ".$tol."‌ா",$text);
         $text=str_replace($tol."ோ","‌‍‌ே".$tol."‌ா",$text);
 }
 
-foreach($tamiloldlet2 as $tol)
-{
+foreach ($tamiloldlet2 as $tol) {
 
     $text=str_replace($tol."ை","‌‍‌ை".$tol,$text);
 
 }
 
-
-foreach($granthalet as $gl)
-{
+foreach ($granthalet as $gl) {
     $text=str_replace($gl."ி",$gl."ি",$text);
     $text=str_replace($gl."ீ",$gl."ী",$text);
     $text=str_replace($gl."ை","‌‍‌ை".$gl,$text);
@@ -508,14 +474,13 @@ if ($_SESSION['tgt'] == "egrantha")  /* Short Vowels for Grantha */
 
     $text=swap_ey($main['scr'],array(""),$text);
 
-    foreach($main['scr'] as $gr)
-    {
+    foreach ($main['scr'] as $gr) {
 
         $text=str_replace($gr."","".$gr."া",$text);
 
 }
 
-$text=str_replace("়্","়্‌",$text);	// Avoid Conjuncts with Nukta
+$text=str_replace("়্","়্‌",$text);    // Avoid Conjuncts with Nukta
 }
 
 // Mark Varga 1 letteers
@@ -548,7 +513,6 @@ if ($_SESSION['tavarga1'] == 1 && $_SESSION['tgt'] == 'dtamil')
 
 }
 
-
 //Tamil Subscripts
 
 if ($_SESSION['tasub'] == 1 && $_SESSION['tgt'] == 'dtamil')
@@ -564,19 +528,15 @@ if ($_SESSION['tasub'] == 1 && $_SESSION['tgt'] == 'dtamil')
 
 // Remove Diacritics from latin encodings
 
-if (in_array($_SESSION['tgt'],$latinarr) || $_SESSION['tgt']=='urdu' )
-{
+if (in_array($_SESSION['tgt'],$latinarr) || $_SESSION['tgt']=='urdu' ) {
 
     $text = str_replace("ʼ","",$text);
 
 }
 
-
-
 // Miscallaeneous Replacement for Roman
 
-if ($_SESSION['tgt'] == "itrans")
-{
+if ($_SESSION['tgt'] == "itrans") {
     $text = str_replace("~%N","~N", $text);
     $text = str_replace(".NN","~N", $text);
     $text = str_replace(".Nn","~n", $text);
@@ -586,48 +546,38 @@ if ($_SESSION['tgt'] == "itrans")
     $nukcor=array("K","q","G","J",".Dh",".D");
     $nukcus=array("khh","ｑh","ghh","^x","rhh","Dhh");
 
-
     $text = str_replace($nukcus,$nukcor,  $text);
 }
 
-if ($_SESSION['tgt'] == "velthuis")
-{
+if ($_SESSION['tgt'] == "velthuis") {
     $text = str_replace("k.Nn","~n", $text);
     $text = str_replace("~mn","~n", $text);
-
 
 }
 
 $text = str_replace("ｑ", "q", $text);
 $text = str_replace("ż", "z", $text);
 
-
-if ($_SESSION['tgt'] == "hk" || $_SESSION['tgt'] == "cologne" )
-{
+if ($_SESSION['tgt'] == "hk" || $_SESSION['tgt'] == "cologne") {
     $text = str_replace(array("q","w","W"),array("RR","lR","lRR"), $text);
     $text = str_replace("RRh","qh", $text);
 }
 
-if ($_SESSION['tgt'] == "velthuis")
-{
+if ($_SESSION['tgt'] == "velthuis") {
     $text = str_replace(".rrh","qh", $text);
 }
 
-
-if ( $_SESSION['tgt'] == "dtamil" )
-{
+if ($_SESSION['tgt'] == "dtamil") {
 
     $text=str_replace("ஂˆ","்ˆ",$text);
 
 }
 
-if ( $_SESSION['tgt'] == "kannada" )
-{
+if ($_SESSION['tgt'] == "kannada") {
     $text = str_replace("಼್","಼್‌",$text);
 }
 
-if ( $_SESSION['tgt'] == "thai" ||  $_SESSION['tgt'] == "tibetan" || $_SESSION['tgt'] == "burmese" || $_SESSION['tgt'] == "khmer")
-{
+if ($_SESSION['tgt'] == "thai" ||  $_SESSION['tgt'] == "tibetan" || $_SESSION['tgt'] == "burmese" || $_SESSION['tgt'] == "khmer") {
     $text = str_replace("‌","",$text);
 }
 
@@ -635,7 +585,6 @@ if ( $_SESSION['tgt'] == "thai" ||  $_SESSION['tgt'] == "tibetan" || $_SESSION['
 
 $text = str_replace($carray,$larray, $text);
 $text = str_replace($carray2,$larray2, $text);
-
 
 $text=str_replace("☸","",$text); // Removing the appended DharmaChakra
 
@@ -649,6 +598,3 @@ $text=str_replace("ம‌‌‌‌‌‌் ̐","ம் ̐",$text);
 $text=str_replace("്ʼ","്‍",$text);
 
 $text=str_replace("ஸ்²ரீ","ஸ்ரீ",$text);
-
-
-?>

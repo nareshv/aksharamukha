@@ -1,4 +1,4 @@
-﻿<?PHP
+<?PHP
 
 /* Processing time limit in seconds */
 
@@ -8,16 +8,14 @@ set_time_limit(5);
 
 $intro_text = <<<CWS
 
-ये धर्मा हेतुप्रभवा 
+ये धर्मा हेतुप्रभवा
 हेतून् तेषां तथागतो ह्यवदत् ।
-तेषां च यो निरोध 
+तेषां च यो निरोध
 एवं वादी महाश्रमणः  ॥
 
                -- प्रतीत्यसमुत्पाद हृदय धारणी
-                                                                  
+
 CWS;
-
-
 
 /* A list of available conversion options */
 
@@ -39,6 +37,3 @@ $convs = array (
 );
 
 /* And which ones among them are script? */
-
-
-?>

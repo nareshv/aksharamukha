@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /* Function to swap numerals & combining vowel signs for conversion */
 
@@ -7,14 +7,12 @@
 function swap($inp, $outp, $text)
 {
 
-foreach ($inp as $nm)
-  {
-	foreach ($outp as $vs)	
-	{
+foreach ($inp as $nm) {
+	foreach ($outp as $vs) {
 		$text = str_replace($nm.$vs,$vs.$nm, $text);
-	}	
+	}
   }
-  
+
   return $text;
 
 }
@@ -22,15 +20,13 @@ foreach ($inp as $nm)
 function swap_ex($inp, $outp, $text)
 {
 
-foreach ($inp as $nm)
-  {
-	foreach ($outp as $vs)	
-	{
+foreach ($inp as $nm) {
+	foreach ($outp as $vs) {
 		$text = str_replace($nm.$vs,$vs.$nm."$", $text);
-	}	
+	}
   }
 
-$text=str_replace("$","",$text);  
+$text=str_replace("$","",$text);
 
   return $text;
 
@@ -39,19 +35,14 @@ $text=str_replace("$","",$text);
 function swap_ey($inp, $outp, $text)
 {
 
-foreach ($inp as $nm)
-  {
-	foreach ($outp as $vs)	
-	{
+foreach ($inp as $nm) {
+	foreach ($outp as $vs) {
 		$text = str_replace($nm.$vs,"$".$vs.$nm, $text);
-	}	
+	}
   }
 
-$text=str_replace("$","",$text);  
+$text=str_replace("$","",$text);
 
   return $text;
 
 }
-
-
-?>

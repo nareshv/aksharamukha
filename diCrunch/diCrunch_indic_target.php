@@ -16,24 +16,23 @@ $text = preg_replace("/(\|?)(\|)/","$1$2 ","$text");
 
 	$text = " " . $text;
 	$text = str_replace("-", "- ", $text); // Ensure full vowel is given after dash
-	$text = str_replace("^", "", $text); // Remove external sandhi break
-	$text = str_replace("%", "", $text); // Remove XHK capital letter sign
-	
+    $text = str_replace("^", "", $text); // Remove external sandhi break
+    $text = str_replace("%", "", $text); // Remove XHK capital letter sign
+
 	/* Create half-consonants */
-	
+
 	$half['tra'] = array();
 	$half['scr'] = array();
-	
+
 	foreach ($main['tra'] as $key => $val) {
 		$half['tra'][$key] = str_replace("a", "", $val);
 	}
 	foreach ($main['scr'] as $key => $val) {
 		$half['scr'][$key] = $val . $v;
 	}
-		
-	
+
 	/* Crunch joint vowels */
-	
+
 	foreach ($yukta['tra'] as $key => $val) {
 		foreach ($half['tra'] as $hkey => $hval) {
 			$obj = str_replace("{$v}", "", $half['scr'][$hkey]);
@@ -76,7 +75,7 @@ $text = str_replace("'".$v,"'",$text);
 
 /* e.g கீ² <-- க²ீ */
 
-$text = swap($SuperNumeral,array($v),$text); 
+$text = swap($SuperNumeral,array($v),$text);
 $text = swap($SuperNumeral,$yukta['scr'],$text);
 $text = swap($SuperNumeralNM,array($main['scr']['149'],$main['scr']['151']),$text);
 
@@ -90,10 +89,7 @@ $text = swap(array($main['scr']['149'],$main['scr']['151']),$SuperNumeral,$text)
 
 /* Swap Vowel Signs in Thai for E, ai, o eY to ye ยเ -> เย */
 
-
-if ($_SESSION['tgt'] == "thai")
-{
+if ($_SESSION['tgt'] == "thai") {
 $text = swap_ey($main['scr'],array($yukta['scr']['311'],$yukta['scr']['312'],$yukta['scr']['313']),$text);
 
 }
-?>

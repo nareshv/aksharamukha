@@ -1,4 +1,4 @@
-﻿<?PHP
+<?PHP
 
 $license = nl2br(file_get_contents("./diCrunch_license.txt"));
 
@@ -18,6 +18,3 @@ $op .= <<<CWS
 {$license}
 </div>
 CWS;
-
-
-?>

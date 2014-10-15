@@ -508,6 +508,7 @@ function txtupld()
 
      if (filext!="txt") {
         alert("Only Text files are allowed !");
+
         return false;
     }
 
